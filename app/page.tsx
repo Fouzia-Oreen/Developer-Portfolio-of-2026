@@ -1,13 +1,25 @@
+import Hero from "@/components/Hero";
+import { getUserLocation } from "@/lib/location";
+import { getTemperature } from "@/lib/weather";
+import type { GeoLocation } from "@/lib/location"
+import type { WeatherData } from "@/lib/weather"
 
-export default function HomePage() {
+interface HeroProps {
+  location: GeoLocation
+  weather: WeatherData
+}
+
+export default async function HomePage() {
+  const location = await getUserLocation()
+  const weather = await getTemperature(
+    location.latitude,
+    location.longitude
+  )
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-3 p-8 text-center">
-      <h1 className="text-3xl font-medium tracking-tight">
-        Starter ready — let&apos;s build this together
-      </h1>
-      <p className="text-sm text-neutral-500">
-        Follow along with the video to build each section from here.
-      </p>
+    <main className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden bg-overlay-cream">
+      <Hero location={location} weather={weather}/>
+      <div className="h-screen"> new to code</div>
     </main>
   )
 }
