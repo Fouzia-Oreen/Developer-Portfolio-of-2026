@@ -347,3 +347,7 @@
   letter-spacing: .08em;
   line-height: 1.4;
 }
+
+@utility eyebrow {
+  @apply uppercase font-mono text-[11px] tracking-[0.14em]
+}

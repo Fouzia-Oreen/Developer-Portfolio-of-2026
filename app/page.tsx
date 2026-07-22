@@ -3,10 +3,11 @@ import { getUserLocation } from "@/lib/location";
 import { getTemperature } from "@/lib/weather";
 import type { GeoLocation } from "@/lib/location"
 import type { WeatherData } from "@/lib/weather"
+import PracticeStripe from "@/components/PracticeStripe";
 
 interface HeroProps {
   location: GeoLocation
-  weather: WeatherData
+  weather: WeatherData | null
 }
 
 export default async function HomePage() {
@@ -19,6 +20,7 @@ export default async function HomePage() {
   return (
     <main className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden bg-overlay-cream">
       <Hero location={location} weather={weather}/>
+      <PracticeStripe />
       <div className="h-screen"> new to code</div>
     </main>
   )
