@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @theme inline {
+
   /* ==========================================
    * Fonts
    ========================================== */
@@ -38,12 +38,20 @@
   --spacing-section: 80px;
 
   /* ==========================================
-   * Editorial Design Tokens
+   * Editorial Colors
    ========================================== */
 
-  /* Surfaces */
+  /* Brand */
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-on-primary: var(--on-primary);
+
+  /* Canvas */
   --color-canvas: var(--canvas);
   --color-canvas-soft: var(--canvas-soft);
+
+  /* Surfaces */
   --color-surface-card: var(--surface-card);
   --color-surface-strong: var(--surface-strong);
 
@@ -58,12 +66,6 @@
   --color-body-strong: var(--body-strong);
   --color-muted-ink: var(--muted-ink);
   --color-muted-soft: var(--muted-soft);
-  --color-on-primary: var(--on-primary);
-
-  /* Brand */
-  --color-primary: var(--primary);
-  --color-primary-active: var(--primary-active);
-  --color-primary-foreground: var(--primary-foreground);
 
   /* Overlay */
   --color-overlay-cream: var(--overlay-cream);
@@ -78,7 +80,10 @@
   --color-success: var(--success);
   --color-error: var(--error);
 
-  /* shadcn aliases */
+  /* ==========================================
+   * shadcn/ui Mapping
+   ========================================== */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -104,69 +109,61 @@
   --color-destructive: var(--destructive);
 }
 
+/* ==========================================================
+   Light Theme
+   ========================================================== */
+
 :root {
-  /* ==========================================
-   * Brand
-   ========================================== */
+
+  /* Brand */
 
   --primary: #f54e00;
-  --primary-foreground: #ffffff;
   --primary-active: #d04200;
+  --primary-foreground: #ffffff;
   --on-primary: #ffffff;
 
-  /* ==========================================
-   * Editorial Surfaces
-   ========================================== */
+  /* Canvas */
 
   --canvas: #f7f7f4;
   --canvas-soft: #fafaf7;
 
+  /* Surfaces */
+
   --surface-card: #ffffff;
   --surface-strong: #e6e5e0;
 
-  /* ==========================================
-   * Hairlines
-   ========================================== */
+  /* Borders */
 
   --hairline: #e6e5e0;
   --hairline-soft: #efeee8;
   --hairline-strong: #cfcdc4;
 
-  /* ==========================================
-   * Typography
-   ========================================== */
+  /* Typography */
 
   --ink: #26251e;
   --body: #5a5852;
   --body-strong: #26251e;
+
   --muted-ink: #807d72;
   --muted-soft: #a09c92;
 
-  /* ==========================================
-   * Overlay
-   ========================================== */
+  /* Overlay */
 
   --overlay-cream: #f7f6f1;
   --overlay-ink: #0f0f0c;
 
-  /* ==========================================
-   * Terminal
-   ========================================== */
+  /* Terminal */
 
   --term-red: #ff5f57;
   --term-yellow: #febc2e;
   --term-green: #28c840;
 
-  /* ==========================================
-   * Semantic
-   ========================================== */
+  /* Semantic */
 
   --success: #1f8a65;
   --error: #cf2d56;
 
-  /* ==========================================
-   * shadcn Remap
-   ========================================== */
+  /* shadcn */
 
   --background: var(--canvas);
   --foreground: var(--ink);
@@ -176,9 +173,6 @@
 
   --popover: var(--surface-card);
   --popover-foreground: var(--ink);
-
-  --primary: var(--primary);
-  --primary-foreground: var(--on-primary);
 
   --secondary: var(--surface-strong);
   --secondary-foreground: var(--ink);
@@ -195,18 +189,161 @@
   --input: var(--hairline);
   --ring: var(--hairline-strong);
 
-  /* ==========================================
-   * Base Radius
-   ========================================== */
-
-  --radius: 0.5rem;
+  --radius: .5rem;
 }
 
+/* ==========================================================
+   Dark Theme
+   ========================================================== */
+
+.dark {
+
+  /* Brand */
+
+  --primary: #f54e00;
+  --primary-active: #ff6a22;
+  --primary-foreground: #ffffff;
+  --on-primary: #ffffff;
+
+  /* Canvas */
+
+  --canvas: #0f0f0c;
+  --canvas-soft: #151512;
+
+  /* Surfaces */
+
+  --surface-card: #171714;
+  --surface-strong: #22221d;
+
+  /* Borders */
+
+  --hairline: #34332c;
+  --hairline-soft: #292821;
+  --hairline-strong: #4a483d;
+
+  /* Typography */
+
+  --ink: #f7f6f1;
+  --body: #b0ada2;
+  --body-strong: #f7f6f1;
+
+  --muted-ink: #8c897f;
+  --muted-soft: #6f6d65;
+
+  /* Overlay */
+
+  --overlay-cream: #f7f6f1;
+  --overlay-ink: #0f0f0c;
+
+  /* Terminal */
+
+  --term-red: #ff5f57;
+  --term-yellow: #febc2e;
+  --term-green: #28c840;
+
+  /* Semantic */
+
+  --success: #1f8a65;
+  --error: #cf2d56;
+
+  /* shadcn */
+
+  --background: var(--canvas);
+  --foreground: var(--ink);
+
+  --card: var(--surface-card);
+  --card-foreground: var(--ink);
+
+  --popover: var(--surface-card);
+  --popover-foreground: var(--ink);
+
+  --secondary: var(--surface-strong);
+  --secondary-foreground: var(--ink);
+
+  --muted: var(--canvas-soft);
+  --muted-foreground: var(--body);
+
+  --accent: var(--hairline-soft);
+  --accent-foreground: var(--ink);
+
+  --destructive: var(--error);
+
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--hairline-strong);
+}
+
+/* ==========================================================
+   Base
+   ========================================================== */
+
 @layer base {
-  * {
+
+  *,
+  *::before,
+  *::after {
     @apply border-border outline-ring/50;
-    }
+
+    scrollbar-width: thin;
+    scrollbar-color:
+      color-mix(in srgb, var(--accent) 50%, transparent)
+      transparent;
+
+    transition:
+      background-color .25s ease,
+      border-color .25s ease,
+      color .25s ease,
+      fill .25s ease,
+      stroke .25s ease;
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
   body {
     @apply bg-background text-foreground;
-    }
+
+    transition:
+      background-color .35s ease,
+      color .35s ease;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+/* ==========================================================
+   Scrollbar
+   ========================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ==========================================================
+   Utilities
+   ========================================================== */
+
+@utility caption-uppercase {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  line-height: 1.4;
 }

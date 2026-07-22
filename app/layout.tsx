@@ -1,19 +1,20 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
 
-import "./globals.css";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import "./globals.css"
+import Header from "@/components/Header"
 
 // Fonts
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fouziaoreen.com"),
@@ -118,11 +119,11 @@ export const metadata: Metadata = {
   },
 
   category: "technology",
-};
+}
 
 type RootLayoutProps = Readonly<{
-  children: React.ReactNode;
-}>;
+  children: React.ReactNode
+}>
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -135,7 +136,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         fontMono.variable
       )}
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
-  );
+  )
 }
