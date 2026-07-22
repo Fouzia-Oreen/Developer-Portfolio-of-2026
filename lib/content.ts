@@ -1,5 +1,5 @@
-// --- Site header ----------------------------------------------------------
-// components/site-header.tsx — primary + mobile nav.
+// --- header ----------------------------------------------------------
+// components/header.tsx — primary + mobile nav.
 export const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "Capabilities", href: "#capabilities" },
@@ -7,6 +7,27 @@ export const NAV_LINKS = [
   { label: "Stack", href: "#stack" },
   { label: "About", href: "#about" },
 ] as const
+
+// --- Hero Media ----------------------------------------------------------
+// components/dayNightSwitch.tsx — primary + mobile nav.
+export type Day_Night_Mode = "day" | "night"
+
+export const HERO_MEDIA: Record<
+  Day_Night_Mode,
+  {
+    poster: string
+    video: string
+  }
+> = {
+  day: {
+    poster: "/assets/03.png",
+    video: "/assets/hero-background-video.mp4",
+  },
+  night: {
+    poster: "/assets/04.png",
+    video: "/assets/hero-night-video.mp4",
+  },
+} as const
 
 // --- Practice strip -------------------------------------------------------
 // components/practice-strip.tsx — the thin band of practice areas.
@@ -267,20 +288,26 @@ export const FOOTER_COLUMNS = [
 
 // --- Token-usage widget ---------------------------------------------------
 // components/widgets/token-usage.tsx — sample usage rows.
-export type Vendor = "Anthropic" | "OpenAI" | "Google" | "Mistral"
+export type Provider = "Anthropic" | "OpenAI" | "Google" | "Mistral"
 
 export type UsageRow = {
   model: string
-  vendor: Vendor
+  provider: Provider
   tokens: number
   costUsd: number
+  percentage: number
+  opacity: number
 }
 
 export const TOKEN_USAGE: UsageRow[] = [
-  { model: "Opus 4.7", vendor: "Anthropic", tokens: 8_230_000, costUsd: 211 },
-  { model: "Sonnet 4.6", vendor: "Anthropic", tokens: 2_400_000, costUsd: 42 },
-  { model: "Haiku 4.5", vendor: "Anthropic", tokens: 1_140_000, costUsd: 19 },
-  { model: "GPT-5", vendor: "OpenAI", tokens: 730_000, costUsd: 12 },
+  { model: "Opus 4.7", provider: "Anthropic", tokens: 8_230_000, costUsd: 211 ,percentage: 66,
+    opacity: 1,},
+  { model: "Sonnet 4.6", provider: "Anthropic", tokens: 2_400_000, costUsd: 42 ,percentage: 19,
+    opacity: 0.72,},
+  { model: "Haiku 4.5", provider: "Anthropic", tokens: 1_140_000, costUsd: 19 ,percentage: 9,
+    opacity: 0.5,},
+  { model: "GPT-5", provider: "OpenAI", tokens: 730_000, costUsd: 12 ,percentage: 6,
+    opacity: 0.34,},
 ]
 
 
